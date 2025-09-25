@@ -18,6 +18,8 @@ const Counter: React.FC = () => {
       <h2> Current count : {count} </h2>
       <button onClick={() => handleDecrement()}> Decrement </button>
       <button onClick={() => handleIncrement()}> Increment </button>
+      {/*same as increment button above 
+       <button onClick={() => setCount(count + 1)}> Increment </button> */}
     </div>
   );
 };

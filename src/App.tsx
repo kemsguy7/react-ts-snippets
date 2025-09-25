@@ -1,6 +1,8 @@
 import React from 'react';
 import Counter from './Counter';
 import NameForm from './NameForm';
+import NameApp from './nameInput';
+import './App.css';
 
 interface GreetingProps {
   name: string;
@@ -16,6 +18,7 @@ const App: React.FC = () => {
       <Greeting name='React Developer' />
       <Counter />
       <NameForm />
+      <NameApp />
     </div>
   );
 };
