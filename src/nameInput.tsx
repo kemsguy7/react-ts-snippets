@@ -1,6 +1,15 @@
 import { useState } from 'react';
 
-const NameInput = ({ name, setName }) => {
+interface GreetingProps {
+  name: string;
+}
+
+interface NameInputProps {
+  name: string;
+  setName: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const NameInput: React.FC<NameInputProps> = ({ name, setName }) => {
   return (
     <div>
       <label>
@@ -11,7 +20,7 @@ const NameInput = ({ name, setName }) => {
   );
 };
 
-const Greeting = ({ name }) => {
+const Greeting: React.FC<GreetingProps> = ({ name }) => {
   return <h1>Hello, {name}! </h1>;
 };
 
