@@ -1,8 +1,8 @@
 import React from 'react';
-import Counter from './Counter';
-import NameForm from './NameForm';
-import NameApp from './nameInput';
-import UserCard from './UserCard';
+import Counter from './components/chap2/Counter';
+import NameForm from './components/chap2/NameForm';
+import NameApp from './components/chap2/nameInput';
+import UserCard from './components/chap2/UserCard';
 import './App.css';
 
 interface GreetingProps {
@@ -22,7 +22,8 @@ const App: React.FC = () => {
   return (
     <div>
       <Greeting name='React Developer' />
-      <UserCard user={user} onClick={handleUserClick} />
+      {/* <UserCard user={user} onClick={handleUserClick} /> */}
+      <UserCard />
       <Counter />
       <NameForm />
       <NameApp />
