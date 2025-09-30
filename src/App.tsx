@@ -3,6 +3,7 @@ import Counter from './components/chap2/Counter';
 import NameForm from './components/chap2/NameForm';
 import NameApp from './components/chap2/nameInput';
 import UserCard from './components/chap2/UserCard';
+import Button from './components/chap2/Button';
 import './App.css';
 
 interface GreetingProps {
@@ -27,6 +28,7 @@ const App: React.FC = () => {
       <Counter />
       <NameForm />
       <NameApp />
+      <Button label='Click Me' onClick={() => alert('Button clicked!')} />
     </div>
   );
 };

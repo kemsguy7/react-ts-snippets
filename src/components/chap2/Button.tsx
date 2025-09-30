@@ -1,4 +1,5 @@
 import React from 'react';
+import './Button.css';
 
 interface ButtonProps {
   label: string; //The text displayed on the button
@@ -10,8 +11,7 @@ interface ButtonProps {
 const Button: React.FC<ButtonProps> = ({ label, onClick, disabled, variant = 'primary' }) => {
   return (
     <button onClick={onClick} disabled={disabled} className={`button${variant}`}>
-      {' '}
-      {label}{' '}
+      {label}
     </button>
   );
 };
