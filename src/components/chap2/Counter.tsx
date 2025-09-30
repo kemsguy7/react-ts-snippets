@@ -1,4 +1,3 @@
-import exp from 'constants';
 import React, { useState } from 'react';
 
 const Counter: React.FC = () => {

@@ -1,9 +1,16 @@
 {
   /* Typing Event Handlers */
 }
-
 import React from 'react';
 import { useState } from 'react';
+
+interface ButtonProps {
+  label?: string;
+}
+
+const Button: React.FC<ButtonProps> = ({ label = 'Click Me' }) => {
+  return <button> {label} </button>;
+};
 
 const ClickButton: React.FC = () => {
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
