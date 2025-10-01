@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Counter from './components/chap2/Counter';
 import NameForm from './components/chap2/NameForm';
 import NameApp from './components/chap2/nameInput';
@@ -20,7 +20,19 @@ const handleUserClick = (id: number) => {
 };
 const user = { id: 4, name: 'Kemsguy7', email: 'mattidungafa@gmail.com' };
 
+{
+  /* setting stage for button loader*/
+}
+
 const App: React.FC = () => {
+  const [loading, setLoading] = useState(false);
+  const handleClick = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      alert('Action completed!');
+    }, 2000); //Simulate a 2-second loading time
+  };
   return (
     <div>
       <Greeting name='React Developer' />
@@ -33,12 +45,15 @@ const App: React.FC = () => {
       <Button
         label='Secondary Button'
         variant='secondary'
-        onClick={() => alert('Button clicked!')}
+        size='medium'
+        onClick={handleClick}
+        loading={loading}
       />
       <Button
         label='Disabled Button'
         disabled={true}
         onClick={() => alert('Button clicked!')}
+
         // Pass the component directly without JSX
       />
       <Button label='Small Button' size='small' variant='secondary' />

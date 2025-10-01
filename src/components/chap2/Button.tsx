@@ -9,6 +9,7 @@ interface ButtonProps {
   variant?: 'primary' | 'secondary'; //Variant for styling purposes
   size?: 'small' | 'medium' | 'large'; //Size of the button
   // icon?: IconType; //Optional icon from react-icons
+  loading?: boolean; //New Loading prop to indicate loading state
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -17,6 +18,7 @@ const Button: React.FC<ButtonProps> = ({
   disabled,
   variant = 'primary',
   size = 'medium',
+  loading,
   // icon: Icon,
 }) => {
   return (
@@ -26,7 +28,10 @@ const Button: React.FC<ButtonProps> = ({
           <Icon {...({} as any)} />
         </span>
       )} */}
-      {label}
+      {/* {loading ? <span className='loader' /> : icon && <span className='button-icon'> {icon}</span>} */}
+      {/* assuming button icon works*/}
+      {loading ? <span className='loader' /> : label}
+      {!loading && label} {/* Show label only when not loading */}
     </button>
   );
 };
