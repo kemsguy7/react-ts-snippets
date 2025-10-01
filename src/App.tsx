@@ -5,6 +5,7 @@ import NameApp from './components/chap2/nameInput';
 import UserCard from './components/chap2/UserCard';
 import Button from './components/chap2/Button';
 import './App.css';
+// import { FaCheck } from 'react-icons/fa';
 
 interface GreetingProps {
   name: string;
@@ -29,6 +30,18 @@ const App: React.FC = () => {
       <NameForm />
       <NameApp />
       <Button label='Click Me' onClick={() => alert('Button clicked!')} />
+      <Button
+        label='Secondary Button'
+        variant='secondary'
+        onClick={() => alert('Button clicked!')}
+      />
+      <Button
+        label='Disabled Button'
+        disabled={true}
+        onClick={() => alert('Button clicked!')}
+        // Pass the component directly without JSX
+      />
+      <Button label='Small Button' size='small' variant='secondary' />
     </div>
   );
 };
