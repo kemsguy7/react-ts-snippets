@@ -105,3 +105,65 @@ let app = new (class {
 })('MyApp');
 
 app.start();
+
+/** computed properties
+ *
+ *  Allows  you to create objects dynamically using an expression in square brackets []
+ */
+
+//syntax
+// let propName = 'propertyName';
+// const obj = {
+//   [propName]: value
+// }; access with obj.propertyName or obj['propertyName']
+
+// basic javaScript example
+let propName = 'c';
+
+const rank = {
+  a: 1,
+  b: 2,
+  [propName]: 3,
+};
+
+console.log(rank[propName]);
+console.log(rank.c);
+//both return 3
+
+//using computed properties in a class
+const name = 'fullName';
+
+class Person4 {
+  constructor(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  get [name]() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+}
+
+let person4 = new Person4('Ekemini', 'Idungafa');
+console.log(person4.fullName);
+console.log(person4[name]);
+//both return Ekemini Idungafa
+
+// creating an object from a key/value pair
+const createObject = (key, value) => {
+  return {
+    [key]: value,
+  };
+};
+const one = createObject('name', 'Ekemini');
+console.log(one); // { name: 'Ekemini' }
+
+//without computed values, you'll write it this way
+const createObject2 = (key, value) => {
+  let obj = {};
+  obj[key] = value;
+  return obj;
+};
+
+const one2 = createObject2('name', 'Ekemini2');
+console.log(one2); // { name: 'Ekemini' }
