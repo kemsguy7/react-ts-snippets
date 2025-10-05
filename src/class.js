@@ -63,3 +63,45 @@ let meeting = {
 
 meeting.add('John').add('Jane').add('Matthew');
 console.log(`Latest Attendee: ${meeting.lastest}`);
+
+// CLASS EXPRESSION
+//does not require an identifier (name) after the class keyword
+let Person3 = class {
+  constructor(name) {
+    this.name = name;
+  }
+};
+//create a new instance, same as class declaration
+let person3 = new Person3('Ekemini');
+console.log(person3.name);
+
+function factory(aClass) {
+  return new aClass();
+}
+
+let greeting = factory(
+  class {
+    sayHi() {
+      console.log('Hi');
+    }
+  },
+);
+
+greeting.sayHi();
+
+//SINGLETION PATTERN
+// Design pattern that limits the instantiatio of a class to a single instance .  Ensures that only one instance of a class can be created throughout the system
+/*
+- To implement this, you use the new operator with a class operation and include the parentheses at the end of the class declaration 
+*/
+
+let app = new (class {
+  constructor(name) {
+    this.name = name;
+  }
+  start() {
+    console.log(`Starting the ${this.name} application...`);
+  }
+})('MyApp');
+
+app.start();
