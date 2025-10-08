@@ -9,28 +9,40 @@ const EffectComponent: React.FC = () => {
   const [count, setCount] = useState<number>(0);
   const [joke, setJoke] = useState<Joke | null>(null); // State for storing the fetched joke
 
-  // Fetch a random joke when the count changes
+  // Fetch a random joke when the count changes with cleanup
   useEffect(() => {
+    let isMounted = true;
+
     fetch('https://icanhazdadjoke.com/', {
       headers: {
         Accept: 'application/json',
       },
     })
       .then((response) => response.json())
-      .then((data) => setJoke(data))
+      //   .then((data) => setJoke(data))
+      .then((data) => {
+        if (isMounted) {
+          setJoke(data);
+        }
+      })
       .catch((error) => console.error('Error fetching joke:', error));
+
+    //cleaup functiom to set isMounted to false when the component unmounts
+    return () => {
+      isMounted = false;
+    };
   }, [count]); // Runs when count changes
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCount((prevCount) => prevCount + 1);
-    }, 1000);
+  //   useEffect(() => {
+  //     const interval = setInterval(() => {
+  //       setCount((prevCount) => prevCount + 1);
+  //     }, 1000);
 
-    //cleanup the interval when the component unmouns
-    return () => {
-      clearInterval(interval);
-    };
-  }, []); // memoth dependency array means the effect runs only once (on mount)
+  //     //cleanup the interval when the component unmouns
+  //     return () => {
+  //       clearInterval(interval);
+  //     };
+  //   }, []); // memoth dependency array means the effect runs only once (on mount)
 
   return (
     <div>
