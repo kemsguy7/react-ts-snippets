@@ -4,6 +4,7 @@ import NameForm from './components/chap2/NameForm';
 import NameApp from './components/chap2/nameInput';
 import UserCard from './components/chap2/UserCard';
 import Button from './components/chap2/Button';
+import EffectComponent from './components/chap3/effect';
 import './App.css';
 // import { FaCheck } from 'react-icons/fa';
 
@@ -57,6 +58,7 @@ const App: React.FC = () => {
         // Pass the component directly without JSX
       />
       <Button label='Small Button' size='small' variant='secondary' />
+      <EffectComponent />
     </div>
   );
 };
