@@ -5,6 +5,7 @@ import NameApp from './components/chap2/nameInput';
 import UserCard from './components/chap2/UserCard';
 import Button from './components/chap2/Button';
 import EffectComponent from './components/chap3/effect';
+import UserProfile, { TodoList } from './components/chap3/hook2';
 import './App.css';
 // import { FaCheck } from 'react-icons/fa';
 
@@ -59,6 +60,8 @@ const App: React.FC = () => {
       />
       <Button label='Small Button' size='small' variant='secondary' />
       <EffectComponent />
+      <UserProfile />
+      <TodoList />
     </div>
   );
 };
